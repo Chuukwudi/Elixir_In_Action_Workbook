@@ -68,7 +68,7 @@ This repository is designed to guide developers from Elixir fundamentals through
 2. **Start with Chapter 1:**
    ```bash
    # Open the first workbook chapter
-   cat data/WORKBOOK/chapter_1.md
+   cat WORKBOOK/chapter_1.md
    ```
 
 3. **Work through each chapter systematically:**
@@ -103,7 +103,7 @@ The container includes:
 
 ### Learning Methodology
 
-Each chapter workbook (`data/WORKBOOK/chapter_X.md`) follows a structured approach:
+Each chapter workbook (`WORKBOOK/chapter_X.md`) follows a structured approach:
 
 1. **Chapter Summary:** High-level overview of key concepts
 2. **Concept Drills:** Focused exercises to reinforce understanding
@@ -116,7 +116,7 @@ Each chapter workbook (`data/WORKBOOK/chapter_X.md`) follows a structured approa
 # 1. Read the chapter in your book
 
 # 2. Review the workbook summary
-cat data/WORKBOOK/chapter_Y.md
+cat WORKBOOK/chapter_Y.md
 
 # 3. Complete drills in an Elixir project
 mix new chapter_Y_drills

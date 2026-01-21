@@ -1,5 +1,3 @@
----
-
 # Chapter 2: Building Blocks – Modules, Functions, & Types
 
 ## 1. Chapter Summary

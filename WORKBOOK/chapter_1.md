@@ -1,5 +1,3 @@
----
-
 # Chapter 1: First Steps – The Philosophy of Erlang & Elixir
 
 ## 1. Chapter Summary
