@@ -1,0 +1,36 @@
+name: elixir-workbook
+services:
+  elixir_dev:
+    container_name: elixir_workbook_devcontainer
+    build:
+      context: .
+      dockerfile: Dockerfile
+      platforms:
+        - "linux/arm64"
+        - "linux/amd64"
+    volumes:
+      - ..:/workspace                           # mount the workspace folder
+      - ~/.claude:/root/.claude                 # for claude api authentication
+      - ~/.claude.json:/root/.claude.json       # for claude code authentication
+    environment:
+      - DATABASE_URL=ecto://postgres:postgres@db/elixir_devcontainer_dev
+      - MIX_ENV=dev
+    depends_on:
+      - db
+    tty: true
+
+  db:
+    image: postgres:16-alpine
+    container_name: elixir_postgres_for_workbook
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: elixir_devcontainer_dev
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_data:

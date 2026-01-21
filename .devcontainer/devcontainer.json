@@ -1,0 +1,51 @@
+{
+    "name": "Elixir Phoenix",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "elixir_dev",
+    "workspaceFolder": "/workspace",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "jakebecker.elixir-ls",
+                "phoenixframework.phoenix",
+                "bradlc.vscode-tailwindcss",
+                "GitHub.copilot",
+                "tamasfe.even-better-toml",
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-toolsai.jupyter",
+                "ms-toolsai.jupyter-keymap",
+                "ms-toolsai.jupyter-renderers"
+            ],
+            "settings": {
+                "elixirLS.dialyzerEnabled": true,
+                "elixirLS.fetchDeps": false,
+                "elixirLS.suggestSpecs": true,
+                "[elixir]": {
+                    "editor.formatOnSave": true
+                },
+                "python.defaultInterpreterPath": "/opt/venv/bin/python",
+                "python.formatting.provider": "none",
+                "[python]": {
+                    "editor.formatOnSave": true,
+                    "editor.defaultFormatter": "ms-python.python"
+                }
+            }
+        }
+    },
+    "initializeCommand": "cd ${localWorkspaceFolder}/.devcontainer && docker-compose down",
+    "forwardPorts": [4000, 5432, 8888],
+    "portsAttributes": {
+        "4000": {
+            "label": "Phoenix",
+            "onAutoForward": "notify"
+        },
+        "5432": {
+            "label": "PostgreSQL"
+        },
+        "8888": {
+            "label": "Jupyter",
+            "onAutoForward": "notify"
+        }
+    }
+}

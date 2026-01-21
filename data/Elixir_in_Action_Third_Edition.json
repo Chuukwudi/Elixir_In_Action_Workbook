@@ -1,0 +1,158 @@
+{
+    "title": "Elixir in Action, 3rd Edition",
+    "author": "Sa\u0161a Juri\u0107",
+    "publisher": "Manning Publications",
+    "year": 2024,
+    "text": {
+        "introduction": {
+            "title": "Introduction",
+            "pages": [
+                1,
+                25
+            ],
+            "chapters": {
+                "0": {
+                    "title": "Introduction",
+                    "pages": [
+                        1,
+                        25
+                    ]
+                }
+            }
+        },
+        "part_1": {
+            "title": "Part 1: Functional Elixir",
+            "pages": [
+                26,
+                163
+            ],
+            "chapters": {
+                "1": {
+                    "title": "First Steps",
+                    "pages": [
+                        26,
+                        43
+                    ]
+                },
+                "2": {
+                    "title": "Building blocks",
+                    "pages": [
+                        44,
+                        93
+                    ]
+                },
+                "3": {
+                    "title": "Control flow",
+                    "pages": [
+                        94,
+                        136
+                    ]
+                },
+                "4": {
+                    "title": "Data abstractions",
+                    "pages": [
+                        137,
+                        163
+                    ]
+                }
+            }
+        },
+        "part_2": {
+            "title": "Part 2: Concurrent Elixir",
+            "pages": [
+                164,
+                319
+            ],
+            "chapters": {
+                "5": {
+                    "title": "Concurrency primitives",
+                    "pages": [
+                        164,
+                        197
+                    ]
+                },
+                "6": {
+                    "title": "Generic server processes",
+                    "pages": [
+                        198,
+                        216
+                    ]
+                },
+                "7": {
+                    "title": "Building a concurrent system",
+                    "pages": [
+                        217,
+                        239
+                    ]
+                },
+                "8": {
+                    "title": "Fault tolerance basics",
+                    "pages": [
+                        240,
+                        263
+                    ]
+                },
+                "9": {
+                    "title": "Isolating error effects",
+                    "pages": [
+                        264,
+                        291
+                    ]
+                },
+                "10": {
+                    "title": "Beyond GenServer",
+                    "pages": [
+                        292,
+                        319
+                    ]
+                }
+            }
+        },
+        "part_3": {
+            "title": "Part 3: Production",
+            "pages": [
+                320,
+                401
+            ],
+            "chapters": {
+                "11": {
+                    "title": "Working with components",
+                    "pages": [
+                        320,
+                        349
+                    ]
+                },
+                "12": {
+                    "title": "Building a distributed system",
+                    "pages": [
+                        350,
+                        379
+                    ]
+                },
+                "13": {
+                    "title": "Running the system",
+                    "pages": [
+                        380,
+                        401
+                    ]
+                }
+            }
+        },
+        "index": {
+            "title": "Index",
+            "pages": [
+                402,
+                413
+            ],
+            "chapters": {
+                "14": {
+                    "title": "Index",
+                    "pages": [
+                        402,
+                        413
+                    ]
+                }
+            }
+        }
+    }
+}
