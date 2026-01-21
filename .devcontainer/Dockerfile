@@ -49,6 +49,7 @@ RUN python3 -m venv $VIRTUAL_ENV && \
     pymupdf \
     pandas \
     PyPDF2 \
+    psycopg2-binary \
     ipykernel
 
 # 6. Install Claude Code

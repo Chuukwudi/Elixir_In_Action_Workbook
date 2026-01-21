@@ -5,13 +5,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      platforms:
-        - "linux/arm64"
-        - "linux/amd64"
+    ports:
+      - "4000:4000"   # Phoenix
+      - "8888:8888"   # Jupyter
     volumes:
-      - ..:/workspace                           # mount the workspace folder
-      - ~/.claude:/root/.claude                 # for claude api authentication
-      - ~/.claude.json:/root/.claude.json       # for claude code authentication
+      - ..:/workspace
+      - ${HOME}/.claude:/root/.claude
+      - ${HOME}/.claude.json:/root/.claude.json
     environment:
       - DATABASE_URL=ecto://postgres:postgres@db/elixir_devcontainer_dev
       - MIX_ENV=dev
@@ -23,14 +23,14 @@ services:
     image: postgres:16-alpine
     container_name: elixir_postgres_for_workbook
     restart: unless-stopped
+    ports:
+      - "5432:5432"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: elixir_devcontainer_dev
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
-
+      
 volumes:
   postgres_data:

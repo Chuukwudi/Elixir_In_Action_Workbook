@@ -11,12 +11,10 @@ Elixir is built on top of Erlang, a platform designed specifically for high avai
 * **Scalability:** The system can handle load increases by adding hardware without software intervention. Because processes share no memory and communicate via messages, synchronization locks are unnecessary, allowing efficient parallelization.
 
 
-* 
-**Distribution:** Processes communicate the same way whether they are on the same machine or different machines, allowing for easy clustering.
+* **Distribution:** Processes communicate the same way whether they are on the same machine or different machines, allowing for easy clustering.
 
 
-* 
-**Responsiveness:** Long-running tasks do not block the system because the scheduler is preemptive (it gives every process a small window of execution time).
+* **Responsiveness:** Long-running tasks do not block the system because the scheduler is preemptive (it gives every process a small window of execution time).
 
 
 
@@ -36,20 +34,16 @@ The engine powering this is the **BEAM** (virtual machine). Unlike other languag
 **Why Elixir?**
 Elixir runs on the BEAM and is semantically close to Erlang but offers significant improvements:
 
-* 
-**Boilerplate Reduction:** Elixir removes the "noise" required in Erlang code to define server processes.
+* **Boilerplate Reduction:** Elixir removes the "noise" required in Erlang code to define server processes.
 
 
-* 
-**Metaprogramming:** Elixir uses macros (code that writes code) to create domain-specific languages (DSLs) and reduce duplication.
+* **Metaprogramming:** Elixir uses macros (code that writes code) to create domain-specific languages (DSLs) and reduce duplication.
 
 
-* 
-**Composability:** Elixir introduces the pipe operator (`|>`) to chain function calls, replacing the clumsy nesting or variable assignment common in Erlang.
+* **Composability:** Elixir introduces the pipe operator (`|>`) to chain function calls, replacing the clumsy nesting or variable assignment common in Erlang.
 
 
-* 
-**Tooling:** Elixir includes `Mix` (for building/testing) and `Hex` (package manager), modernizing the development workflow.
+* **Tooling:** Elixir includes `Mix` (for building/testing) and `Hex` (package manager), modernizing the development workflow.
 
 
 
