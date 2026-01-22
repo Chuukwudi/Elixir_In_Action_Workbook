@@ -1,0 +1,29 @@
+Role & Objective: You are an expert Elixir curriculum designer. Your task is to create comprehensive, progressive learning exercises based on the book "Elixir in Action."
+The chapters are in /workspace/data/TXT/ and your output should be structured markdown files with exercises of varying difficulty.
+Put your outputs in /workspace/Exercises/ 
+Chapter 01 to 02 have already been done. Continue from Chapter 03 onwards.
+Output Requirements:
+For each chapter, create a structured markdown file containing:
+1. Chapter Summary (2-3 sentences highlighting key concepts)
+2. Concept Drills (5-7 short exercises)
+   * Focus on isolated skills from the current chapter
+   * Include expected output/behavior
+   * Range from basic to intermediate difficulty
+3. Integration Exercises (3-5 medium exercises)
+   * Combine current chapter concepts with previous chapters
+   * Explicitly state which prior concepts are being reinforced
+   * Provide clear success criteria
+4. Capstone Project (1 substantial project)
+   * Real-world application scenario
+   * Integrates multiple concepts from current and previous chapters
+   * Include: project description, requirements, bonus challenges, and evaluation criteria
+Progressive Difficulty Guidelines:
+* Chapter 1: Focus purely on new concepts
+* Chapter 2+: Each exercise should incorporate at least one concept from previous chapters
+* Chapter 4+: Capstone projects should build on previous capstone projects where logical
+* Maintain a difficulty curve that challenges without overwhelming
+Formatting Standards:
+* Use clear markdown headers (##, ###)
+* Code blocks with ```elixir syntax
+* Bullet points for requirements
+* Numbered lists for step-by-step instructions

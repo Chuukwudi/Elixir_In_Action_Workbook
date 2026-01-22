@@ -15,78 +15,74 @@
     This is different from using dot notation, which is typically used for method chaining in object-oriented programming. In Elixir, the dot syntax is only for accessing functions or properties on modules or structs, not for chaining function calls in a pipeline. The pipe operator is specifically designed to enhance readability and maintainability of function call sequences.
 
 ### Project
-    Here is a solution to the "Coffee Shop" System Design challenge. This maps the theoretical concepts of the Erlang/Elixir Process Model onto a concrete workflow.
+Here is a solution to the "Coffee Shop" System Design challenge. This maps the theoretical concepts of the Erlang/Elixir Process Model onto a concrete workflow.
 
-    1. Identify the Processes (The Actors)
+### 1. Identify the Processes (The Actors)
 
-        In an Elixir design, we treat distinct entities as isolated processes, each maintaining its own state.
+In an Elixir design, we treat distinct entities as isolated processes, each maintaining its own state.
 
-        Process A: The Cashier`**
-        * Responsibility:** Interacts with customers, inputs orders, and calculates totals.
-        * State: Holds the current order queue and cash register balance.
-
-
-        Process B: The Barista`**
-        * Responsibility: Receives drink tickets and physically prepares the coffee.
-        * State: Holds the list of pending drinks (the "backlog") and current machine status (heating brewing, idle).
+1. **`Process A: The Cashier`**
+    * **Responsibility:** Interacts with customers, inputs orders, and calculates totals.
+    * **State:** Holds the current order queue and cash register balance.
 
 
-        Process C: The PaymentGateway`**
-        * Responsibility: Communicates with the external credit card network (Visa/Mastercard).
-        * State: Connection status to the bank API.
+2. **`Process B: The Barista`**
+    * **Responsibility:** Receives drink tickets and physically prepares the coffee.
+    * **State:** Holds the list of pending drinks (the "backlog") and current machine status (heating, brewing, idle).
+
+
+3. **`Process C: The PaymentGateway`**
+    * **Responsibility:** Communicates with the external credit card network (Visa/Mastercard).
+    * **State:** Connection status to the bank API.
 
 
 
-    2. Define the Messages
+### 2. Define the Messages
 
-    These processes share nothing. They cannot read each other's memory variables. They coordinate only by sending asynchronous messages (data tuples) to each other's mailboxes.
+These processes share **nothing**. They cannot read each other's memory variables. They coordinate *only* by sending asynchronous messages (data tuples) to each other's mailboxes.
 
-    * Cashier  PaymentGateway:
+* **Cashier  PaymentGateway:**
     * `{:authorize_payment, order_id: 101, amount: 4.50, card_token: "xyz"}`
-    * Meaning: "Hey PaymentGateway, try to charge this card."
+    * *Meaning:* "Hey PaymentGateway, try to charge this card."
 
 
-    * PaymentGateway  Cashier:
+* **PaymentGateway  Cashier:**
     * `{:payment_success, order_id: 101}`
-    * Meaning: "The money is secure. You may proceed."
+    * *Meaning:* "The money is secure. You may proceed."
 
 
-    * Cashier  Barista:
+* **Cashier  Barista:**
     * `{:brew, order_id: 101, type: :latte, milk: :oat}`
     * *Meaning:* "Payment is good. Please add an Oat Latte to your queue."
 
 
-    * Barista  Customer (or DisplayScreen):
+* **Barista  Customer (or DisplayScreen):**
     * `{:order_ready, order_id: 101}`
-    * Meaning: "Order 101 is up!"
+    * *Meaning:* "Order 101 is up!"
 
 
 
-    3. The Failure Scenario
+### 3. The Failure Scenario
 
-    Scenario: The `PaymentGateway`** process crashes. Perhaps the external internet connection dropped, or the bank API returned a malformed JSON response that caused a divide-by-zero error in your code.
+**Scenario:** The **`PaymentGateway`** process crashes. Perhaps the external internet connection dropped, or the bank API returned a malformed JSON response that caused a divide-by-zero error in your code.
 
-    In a Java/C++ Monolith:**
-    In a traditional threaded model, a crash in the payment thread might corrupt shared memory or throw an unhandled exception that bubbles up to the main application loop, potentially crashing the entire server or freezing the Cashier UI.
+**In a Java/C++ Monolith:**
+In a traditional threaded model, a crash in the payment thread might corrupt shared memory or throw an unhandled exception that bubbles up to the main application loop, potentially crashing the entire server or freezing the Cashier UI.
 
-    **In the Elixir Process Model:**
+**In the Elixir Process Model:**
 
-    1. **The Crash:** The `PaymentGateway` process dies and disappears.
-    2. **The Isolation:**
+1. **The Crash:** The `PaymentGateway` process dies and disappears.
+2. **The Isolation:**
     * The **`Barista`** process is completely unaffected. It continues brewing the Latte for Order #100 because it has its own memory heap. The coffee machine does not stop.
     * The **`Cashier`** process remains alive. It might receive a standard system message (like `{:EXIT, pid, :reason}`) notifying it that the Payment process died, but the Cashier does not crash.
 
 
-    3. **The Recovery (Fault Tolerance):**
-    * A **Supervisor** (a special process we haven't discussed yet) notices the `PaymentGateway` died and instantly restarts a fresh new copy of it.
+3. **The Recovery (Fault Tolerance):**
+    * A **Supervisor** notices the `PaymentGateway` died and instantly restarts a fresh new copy of it.
     * The system self-heals. The next customer can try to pay again.
 
 
+### Summary
 
-    ### Summary
+This model decouples the **components of time**. The Barista doesn't need to wait for the Payment Gateway to finish processing before grinding beans for the *previous* customer. They run in parallel, synchronized only by the messages they exchange.
 
-    This model decouples the **components of time**. The Barista doesn't need to wait for the Payment Gateway to finish processing before grinding beans for the *previous* customer. They run in parallel, synchronized only by the messages they exchange.
-
-    ### Would you like me to...
-
-    Translate this concept into actual Elixir code using `spawn`, `send`, and `receive` so you can see the syntax for these messages?
