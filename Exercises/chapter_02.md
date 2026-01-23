@@ -182,50 +182,7 @@ Working examples of each string operation and understanding when to use each syn
 
 These exercises combine concepts from Chapter 2 with principles from Chapter 1.
 
-### Exercise 1: Module Design for Concurrent Systems
-
-**Objective:** Apply Chapter 1 concepts (fault tolerance, concurrency) while building Chapter 2 modules.
-
-**Concepts Reinforced:**
-- Module and function organization (Chapter 2)
-- Thinking about fault tolerance and process isolation (Chapter 1)
-- Function visibility and boundaries
-
-**Task:** Design a module structure for a concurrent task manager. You don't need to implement concurrency yet, but organize your code thinking about it:
-
-```elixir
-defmodule TaskManager do
-  # Public API - these will be called by external processes
-  
-  # Private helpers - internal to the module
-end
-
-defmodule TaskManager.Task do
-  # Represents a single task
-  # Think: if each task runs in its own process,
-  # what data should this hold?
-end
-```
-
-Create:
-1. Public functions: `create_task/2`, `get_task/1`, `update_status/2`
-2. Private helper functions for validation
-3. A task structure using maps with keys: `:id`, `:name`, `:status`, `:created_at`
-
-**Success Criteria:**
-- Clear separation of public API and private functions
-- Module hierarchy makes sense for future process-per-task model
-- Immutable data structures (maps) used appropriately
-- Functions are small and single-purpose
-
-**Reflection Questions:**
-- How does immutability support fault tolerance?
-- If each task runs in a separate process, why is isolation useful?
-- How would you handle a task function crashing?
-
----
-
-### Exercise 2: Data Pipeline with Pipe Operator
+### Exercise 1: Data Pipeline with Pipe Operator
 
 **Objective:** Use Chapter 2's pipe operator to build readable transformations, reinforcing Chapter 1's emphasis on composability.
 
@@ -266,7 +223,7 @@ Create:
 
 ---
 
-### Exercise 3: Keyword Lists for Configuration
+### Exercise 2: Keyword Lists for Configuration
 
 **Objective:** Use keyword lists for flexible function options, preparing for the configurable systems from Chapter 1.
 

@@ -58,7 +58,7 @@ Elixir web servers typically consist of several key components that work togethe
     function_c(function_b(function_a(value)))
 ```
 
-### Drill 6 Erlang vs. Elixir Trade-offs
+### Drill 6: Erlang vs. Elixir Trade-offs
 - `Speed`: Elixir is run on the BEAM VM, so performance won't be on par with languages that compile to native code like C or Rust. However, for many applications, the concurrency and fault-tolerance benefits outweigh raw speed. If you need maximum performance for CPU-bound tasks, a lower-level language might be better.
 - `Ecosystem Maturity`: Erlang has been around since the 1980s and has a mature ecosystem for telecom and distributed systems. But it isn't the most popular language today. If you need quicker onboarding or a larger talent pool, Elixir may not be your best choice.
 
