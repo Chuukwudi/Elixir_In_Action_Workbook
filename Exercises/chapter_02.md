@@ -264,7 +264,7 @@ Logger.log("Error occurred", level: :error, timestamp: false)
 
 ---
 
-### Exercise 4: Type System and Runtime Behavior
+### Exercise 3: Type System and Runtime Behavior
 
 **Objective:** Understand how Elixir's dynamic type system works at runtime and relates to BEAM's reliability.
 
@@ -311,7 +311,7 @@ Calculator.safe_divide(10, 0, :infinity)  # => :infinity
 
 ---
 
-### Exercise 5: Module Compilation and Runtime
+### Exercise 4: Module Compilation and Runtime
 
 **Objective:** Understand the relationship between source code, modules, and the BEAM runtime.
 
