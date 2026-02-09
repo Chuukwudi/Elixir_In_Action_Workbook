@@ -9,7 +9,7 @@
                 "jakebecker.elixir-ls",
                 "phoenixframework.phoenix",
                 "bradlc.vscode-tailwindcss",
-                "GitHub.copilot",
+                // "GitHub.copilot", Learning mode. We do not need your help.
                 "tamasfe.even-better-toml",
                 "ms-python.python",
                 "ms-python.vscode-pylance",
@@ -35,13 +35,13 @@
         }
     },
     "initializeCommand": "cd ${localWorkspaceFolder}/.devcontainer && docker-compose down",
-    "forwardPorts": [4000, 5432, 8888],
+    "forwardPorts": [4001, 5433, 8888],
     "portsAttributes": {
-        "4000": {
+        "4001": {
             "label": "Phoenix",
             "onAutoForward": "notify"
         },
-        "5432": {
+        "5433": {
             "label": "PostgreSQL"
         },
         "8888": {

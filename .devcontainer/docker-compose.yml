@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "4000:4000"   # Phoenix
+      - "4001:4001"   # Phoenix
       - "8888:8888"   # Jupyter
     volumes:
       - ..:/workspace
@@ -24,7 +24,7 @@ services:
     container_name: elixir_postgres_for_workbook
     restart: unless-stopped
     ports:
-      - "5432:5432"
+      - "5433:5433"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
